@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar [color]="isRecording ? 'danger' : 'primary'" >
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="font-size: 20px;">Add foods speaking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <section class="full-width">
+    <ion-button expand="block" (click)="getPermission()">Get Permissions</ion-button>
+  </section>
+
+  <section class="full-width">
+    <ion-button expand="block" (click)="startListening()">Start Listening</ion-button>
+  </section>
+
+  <section class="full-width">
+    <ion-button expand="block" (click)="stopListening()" *ngIf="isIos()">Stop Listening</ion-button>
+  </section>
+  
+  <p>Example : 100 grams of apple and 200 grams of tomato (foods at sg)</p>
+
+  <ion-card>
+    <ion-card-header>This is what I understood...</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+          <ion-item *ngFor="let match of matches">
+            <ion-label (click)="convertTextToFoods(match.toLowerCase() )" >
+              {{ match.toLowerCase() }}
+            </ion-label>
+          </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar  >
+    <ion-buttons slot="start">
+      <ion-back-button (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="foodType !== undefined" style="font-size: 20px;">{{ getFoodType() }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-searchbar [(ngModel)]="searchTerm"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let food of (foods | async) | foodFilter:searchTerm " (click)="openModalForFood(food)">
+      <ion-thumbnail slot="start">
+        <img [src]="food.imageUrl">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{food.name}}</h2>
+        <p>{{food.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="column">
+        <ion-button expand="block" class="buttons" (click)="openModalAddNewFood()" style="font-size: 17px;"
+          >Add Food</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+</ion-content>

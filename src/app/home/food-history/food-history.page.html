@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="font-size: 20px;">Food History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  *ngIf="!isLoading">
+  <div *ngIf="day !== undefined">
+    <div style="display: flex; justify-content: center;">
+<ion-button color="primary" (click)="previousDay()" [disabled]="indexDay === 0" style="margin: auto; width: 30%;" >Previos</ion-button>
+<ion-label *ngIf="day !== undefined" style="margin: auto; width: 30%; text-align: center; " > {{ day.date }} </ion-label>
+<ion-button color="primary" (click)="nextDay()" [disabled]="indexDay === nrOfDays - 1" style="margin: auto; width: 30%;" >Next</ion-button>
+</div>
+  <h3>Breakfast</h3>
+  <app-show-food-of-meal [idMeal]="day.idBreakfast" [readonly]="true" ></app-show-food-of-meal>
+  <h3>Lunch</h3>
+  <app-show-food-of-meal [idMeal]="day.idLunch" [readonly]="true" ></app-show-food-of-meal>
+  <h3>Dinner</h3>
+  <app-show-food-of-meal [idMeal]="day.idDinner" [readonly]="true" ></app-show-food-of-meal>
+  <h3>Snacks</h3>
+  <app-show-food-of-meal [idMeal]="day.idSnack" [readonly]="true" ></app-show-food-of-meal>
+  
+  </div>
+
+</ion-content>

@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="font-size: 20px;">Calculator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="features" (ngSubmit)="logForm()">
+
+  <ion-segment color="tertiary" formControlName="goal" style="margin-top: 1px;">
+    <ion-segment-button value="0" style="height: 50px; font-size: 15px;">
+      <ion-label>Weight Loss</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="1" style="height: 50px; font-size: 15px;">
+      <ion-label>Maintance</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="2" style="height: 50px; font-size: 15px;">
+      <ion-label>Gain Muscle</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <ion-item lines="none">
+    <img src="../../../assets/height.png" style="float: left;">
+    <ion-range min="120" max="220" pin step="1" formControlName="height">
+    </ion-range>
+    <label>CM</label>
+  </ion-item>
+
+
+  <ion-item lines="none">
+    <img src="../../../assets/man.png" style="float: left;">
+    <ion-range min="35" max="200" pin step="1" formControlName="weight">
+    </ion-range>
+    <img src="../../../assets/fat-man.png" style="float: right;">
+  </ion-item>
+
+
+  <ion-item>
+    <ion-select [value]="20" style="float: left; font-size: 20px;" formControlName="ages">
+      <div *ngFor="let item of [].constructor(80); let i = index">
+        <ion-select-option [value]="i" *ngIf="i >= 15">{{ i }}</ion-select-option>
+      </div>
+    </ion-select>
+    <ion-label style="float: right; margin-left: 5%; font-size: 20px;">Ages</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-item style="float: left;" lines="none">
+      <ion-label>M</ion-label>
+      <ion-checkbox color="primary" slot="start" (click)="features.get('sexF').setValue(false)" formControlName="sexM"></ion-checkbox>
+      <ion-icon name="man-outline"></ion-icon>
+    </ion-item>
+
+    <ion-item style="float: left;" lines="none">
+      <ion-label>F</ion-label>
+      <ion-checkbox color="primary" slot="start" (click)="features.get('sexM').setValue(false)" formControlName="sexF" ></ion-checkbox>
+      <ion-icon name="woman-outline"></ion-icon>
+    </ion-item>
+  </ion-item>
+
+
+  <ion-list>
+    <ion-radio-group formControlName="lvlActivity" >
+      <ion-list-header>
+        <ion-label style="font-size: 18px;">Choose your level activity</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Sedentary</ion-label>
+        <ion-radio slot="start" color="danger" value="s"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Slightly active</ion-label>
+        <ion-radio slot="start" color="warning" value="sa"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Active</ion-label>
+        <ion-radio slot="start" color="tertiary" value="a"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Very Active</ion-label>
+        <ion-radio slot="start" color="success" value="va"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="column">
+        <ion-button expand="block" class="buttons" (click)="onSave()">Save data</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </form>
+</ion-content>

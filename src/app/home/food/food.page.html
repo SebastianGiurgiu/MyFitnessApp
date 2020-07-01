@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="font-size: 20px;">Foods</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <ion-grid>
+
+    <ion-row class="row-pic">
+      <ion-col size-sm="6" offset-sm="3" class="col-pic">
+        <img src="../../..//assets/food-icon/fruits/apple.png">
+        <img src="../../..//assets/food-icon/fruits/citrus.png">
+        <img src="../../..//assets/food-icon/fruits/pineapple.png">
+        <img src="../../..//assets/food-icon/fruits/orange.png">
+        <img src="../../..//assets/food-icon/fruits/watermelon.png">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-button expand="block" class="buttons" (click)="onFruitPage()" style="width: 100%;" >Fruits</ion-button>
+    </ion-row>
+
+    <ion-row class="row-pic">
+      <ion-col size-sm="6" offset-sm="3" class="col-pic">
+        <img src="../../..//assets/food-icon/veggies/tomato.png">
+        <img src="../../..//assets/food-icon/veggies/corn.png">
+        <img src="../../..//assets/food-icon/veggies/potato.png">
+        <img src="../../..//assets/food-icon/veggies/broccoli.png">
+        <img src="../../..//assets/food-icon/veggies/paprika.png">
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-button class="buttons" (click)="onVeggiePage()" style="width: 100%;" >Veggies</ion-button>
+    </ion-row>
+
+    <ion-row class="row-pic">
+      <ion-col size-sm="6" offset-sm="3" class="col-pic">
+        <img src="../../..//assets/food-icon/meats/ham.png">
+        <img src="../../..//assets/food-icon/meats/poultry-leg.png">
+        <img src="../../..//assets/food-icon/meats/rack-of-lamb.png">
+        <img src="../../..//assets/food-icon/meats/steak.png">
+        <img src="../../..//assets/food-icon/meats/kebab.png">
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-button expand="block" class="buttons" (click)="onMeatPage()" style="width: 100%;" >Meats</ion-button>
+    </ion-row>
+
+    <ion-row class="row-pic">
+      <ion-col size-sm="6" offset-sm="3" class="col-pic">
+        <img src="../../..//assets/food-icon/others/noodles.png">
+        <img src="../../..//assets/food-icon/others/porridge.png">
+        <img src="../../..//assets/food-icon/others/hamburger.png">
+        <img src="../../..//assets/food-icon/others/pizza.png">
+        <img src="../../..//assets/food-icon/others/cake.png">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-button expand="block" class="buttons" (click)="onGasketPage()" style="width: 100%;" >Gaskets and others</ion-button>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="font-size: 18px;">Diary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isLoading">
+
+  <div *ngIf="day !== undefined">
+
+    <h3>Breakfast</h3>
+    <app-show-food-of-meal [day]="day" [idMeal]="day.idBreakfast"></app-show-food-of-meal>
+    <h3>Lunch</h3>
+    <app-show-food-of-meal [day]="day" [idMeal]="day.idLunch"></app-show-food-of-meal>
+    <h3>Dinner</h3>
+    <app-show-food-of-meal [day]="day" [idMeal]="day.idDinner"></app-show-food-of-meal>
+    <h3>Snacks</h3>
+    <app-show-food-of-meal [day]="day" [idMeal]="day.idSnack"></app-show-food-of-meal>
+    <h3>Total calories : {{ day.nrCal | number : '1.1-1'}}</h3>
+  </div>
+
+</ion-content>

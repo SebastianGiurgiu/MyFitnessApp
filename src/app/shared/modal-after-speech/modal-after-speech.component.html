@@ -1,0 +1,42 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Your foods found</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list *ngIf="selectedFoods">
+    <ion-item-sliding *ngFor="let food of selectedFoods">
+      <ion-item style="max-height: 10%;">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h4>{{ food.food.name }}</h4>
+              <h5>{{ food.quantity }} grams </h5>
+            </ion-col>
+            <ion-col>
+              <img [src]="food.food.imageUrl" style="height: 6.5em;">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<ion-item>
+  <ion-label>Choosee meal</ion-label>
+  <ion-select value="breakfast" interface="action-sheet" [(ngModel)]="chooseMeal">
+    <ion-select-option value="breakfast">Breakfast</ion-select-option>
+    <ion-select-option value="lunch">Lunch</ion-select-option>
+    <ion-select-option value="dinner">Dinner</ion-select-option>
+    <ion-select-option value="snacks">Snacks</ion-select-option>
+  </ion-select>
+</ion-item>
+
+
+<ion-button (click)="continue()">Finalization</ion-button>

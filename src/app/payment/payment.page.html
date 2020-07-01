@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+     Train like us
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+  <div>
+    <h2 style="text-align: center;">Beginner - 10$</h2>
+    <img src="assets/tudor/tudor1.jpg">
+    <ion-button expand="full" color="success" (click)="payWithStripe(10)">Buy Beginner Pack</ion-button>
+  </div>
+
+  <div>
+    <h2 style="text-align: center;">Intermediate  - 21$</h2>
+    <img src="assets/tudor/tudor2.jpg">
+    <ion-button expand="full" color="success" (click)="payWithStripe(21)">Buy Intermediate PacK</ion-button>
+  </div>
+
+
+  <div>
+    <h2 style="text-align: center;">Advanced - 37$</h2>
+    <img src="assets/tudor/tudor3.jpg">
+    <ion-button expand="full" color="success" (click)="payWithStripe(37)">Buy Advanced Pack</ion-button>
+  </div>
+
+  
+</ion-content>

@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modal-add-food</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <form [formGroup]="food" (ngSubmit)="addNewFood()">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Proteine</ion-label>
+      <ion-input formControlName="proteins"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Carbohidrati</ion-label>
+      <ion-input formControlName="carbohydrates"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Grasimi</ion-label>
+      <ion-input formControlName="fats"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descriere</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type Food</ion-label>
+      <ion-select value="fruit" formControlName="type">
+        <ion-select-option value="fruit">Frutis</ion-select-option>
+        <ion-select-option value="veggie">Veggies</ion-select-option>
+        <ion-select-option value="meat">Meat</ion-select-option>
+        <ion-select-option value="cereal">Cereal</ion-select-option>
+        <ion-select-option value="gasket">Gasket</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="column">
+          <ion-button expand="block" class="buttons" (click)="takePhoto()">Take a Photo Now</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="column">
+          <ion-button expand="block" class="buttons" (click)="takeGallery()">Upload a photo from gallery </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    
+    <ion-item *ngIf="myPhoto !== '' ">
+      <img src="{{ myPhoto }}">
+    </ion-item>
+
+   
+    <ion-item>
+      <ion-label position="floating">Numarul total de calorii este </ion-label>
+      <ion-input formControlName="calories" [(ngModel)]="nrCal"></ion-input>
+    </ion-item>
+
+    <!-- <button ion-button type="submit" [disabled]="!food.valid">Submit</button> -->
+
+    <ion-grid *ngIf="isLoadingPhoto" >
+    <ion-row text-center>
+      <ion-spinner color="primary"></ion-spinner>
+    </ion-row>
+    </ion-grid>
+
+
+    <ion-grid *ngIf="!isLoadingPhoto">
+      <ion-row>
+        <ion-col class="column">
+          <ion-button expand="block" class="buttons" type="submit" >Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </form>
+</ion-content>

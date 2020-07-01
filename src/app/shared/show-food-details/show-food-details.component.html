@@ -1,0 +1,19 @@
+<div>
+  <img [src]="selectedFood.imageUrl">
+
+  <table>
+    <tr>
+      <th>Proteins</th>
+      <th>Carbs</th>
+      <th>Fats</th>
+    </tr>
+    <tr>
+      <td>{{ selectedFood.proteins }}  </td>
+      <td>{{ selectedFood.carbohydrates }}</td>
+      <td>{{ selectedFood.fats }}</td>
+    </tr>
+    </table>
+
+    <p style="font-size: 5vw">Total nr of calories : {{ selectedFood.calories.toFixed(1) }} to 100 grams </p> 
+
+</div>

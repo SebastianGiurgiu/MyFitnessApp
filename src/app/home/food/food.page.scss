@@ -1,0 +1,17 @@
+.buttons {
+   height: 45px;
+   font-size: 25px;
+   border: solid 5px;
+   border-color: black;
+   border-radius: 20px !important;
+   --background:  #088d6c !important;
+   --background-activated: rgb(0, 0, 0) !important;
+}
+
+.col-pic {
+    text-align: center;
+}
+
+.row-pic {
+    margin: 5%;
+}

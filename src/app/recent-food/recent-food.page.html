@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Recent foods</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="margin-top: 10px;">
+    <ion-item *ngFor="let food of (foods | async)" (click)="openModalForFood(food)">
+      <ion-thumbnail slot="start">
+        <img [src]="food.imageUrl">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{food.name}}</h2>
+      </ion-label>
+      <div style="font-size: 35px;">
+      <ion-icon name="checkmark-circle-outline" style="margin-right: 10px;" color="success" (click)="Approved(food)"></ion-icon>
+      <ion-icon name="close-circle-outline" color="danger" (click)="Delete(food)"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

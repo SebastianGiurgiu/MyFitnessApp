@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="font-size: 20px;" > {{ selectedFood.name }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+<app-show-food-details [selectedFood]="selectedFood"></app-show-food-details>
+ 
+<ion-content *ngIf="justInfo !== undefined && justInfo === false">
+  <ion-item>
+    <ion-input
+      type="number"
+      placeholder="Type the qauntity( in grams )"
+      [(ngModel)]="quantOfFood"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="nbOfCalFood !== null">
+    <ion-label fixed>
+     Nr of calories for your qauntity :
+    </ion-label>
+  </ion-item>
+
+  <ion-item *ngIf="nbOfCalFood !== null">
+    <ion-label >
+      {{ ( (quantOfFood * selectedFood.calories)  / 100 ).toFixed(1)  }}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Choosee meal</ion-label>
+    <ion-select value="breakfast" interface="action-sheet" [(ngModel)]="chooseMeal">
+      <ion-select-option value="breakfast">Breakfast</ion-select-option>
+      <ion-select-option value="lunch">Lunch</ion-select-option>
+      <ion-select-option value="dinner">Dinner</ion-select-option>
+      <ion-select-option value="snacks">Snacks</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-button style="width: 100%;" (click)="AddToMeal()" [disabled]="quantOfFood === undefined || quantOfFood === null ||  quantOfFood === 0 ">
+   Add in your diary 
+  </ion-button>
+
+</ion-content>
+
+</ion-content>

@@ -1,0 +1,54 @@
+// .content {
+//     --background: linear-gradient(270deg, #7ae7cb, #108769);
+//   }
+
+ion-input {
+    font-size: 1.3em;
+    border-radius: 20px !important;
+}
+
+.itemm {
+    border-color: black;
+    border: solid 2px;
+    border-radius: 20px !important;
+    --background: rgb(252, 252, 252) !important;
+    margin-bottom: 20px;
+}
+
+.switch-button {
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+    --background:  rgb(0,0,0,0) !important;
+    --background-activated: rgb(0,0,0,0) !important;
+    color: black;
+}
+
+.login-button {
+    --background: rgb(0, 0, 0) !important;
+    --background-activated: rgb(6, 240, 143) !important;
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.transparent-background {
+    background: transparent;
+}
+
+.row-title {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.img-icon {
+    max-width: 70%;
+}
+
+.col-pic {
+    text-align: center;
+}
+
+.row-pic {
+    margin: 5%;
+}
